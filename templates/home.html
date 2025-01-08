@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">FWI Prediction</h1>
+
+                        <!-- Form for input data -->
+                        <form action="/predictdata" method="post"> <!--action="{{url_for('predict_datapoint')}}" is also valid -->
+                            <div class="row">
+                                <!-- First column with first five fields -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="Temperature" class="form-label">Temperature</label>
+                                        <input type="text" class="form-control" id="Temperature" name="Temperature" placeholder="Temperature" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="RH" class="form-label">RH</label>
+                                        <input type="text" class="form-control" id="RH" name="RH" placeholder="RH" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Ws" class="form-label">Ws</label>
+                                        <input type="text" class="form-control" id="Ws" name="Ws" placeholder="Ws" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Rain" class="form-label">Rain</label>
+                                        <input type="text" class="form-control" id="Rain" name="Rain" placeholder="Rain" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="FFMC" class="form-label">FFMC</label>
+                                        <input type="text" class="form-control" id="FFMC" name="FFMC" placeholder="FFMC" required>
+                                    </div>
+                                </div>
+
+                                <!-- Second column with next five fields -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="DMC" class="form-label">DMC</label>
+                                        <input type="text" class="form-control" id="DMC" name="DMC" placeholder="DMC" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ISI" class="form-label">ISI</label>
+                                        <input type="text" class="form-control" id="ISI" name="ISI" placeholder="ISI" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Classes" class="form-label">Classes</label>
+                                        <input type="text" class="form-control" id="Classes" name="Classes" placeholder="Classes" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Region" class="form-label">Region</label>
+                                        <input type="text" class="form-control" id="Region" name="Region" placeholder="Region" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Predict</button>
+                        </form>
+
+                        <h2 class="text-center mt-4">
+                            THE FWI prediction is <span style="color: red;">{{result}}</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
